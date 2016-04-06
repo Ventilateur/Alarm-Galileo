@@ -8,7 +8,7 @@
 #include <SoftwareSerial.h>
 #include "Alarm_Btl_DistLib.h"
 
-//====définir les pins à utiliser====// 
+//====dÃ©finir les pins Ã  utiliser====// 
 
 // bluetooth module tx, rx pins
 #define TX_PIN		7			 
@@ -24,14 +24,14 @@
 
 //===================================//
 
-// distance max à déclancher l'alarme
+// distance max Ã  dÃ©clancher l'alarme
 #define MAX_DIST    20.0
 
-// définir le mot de passe pour désactiver l'alarme
+// dÃ©finir le mot de passe pour dÃ©sactiver l'alarme
 const String password = "1234";
 const int passwordLen = 4;
 
-// initialiser la communication sériale et le capteur de distance 
+// initialiser la communication sÃ©riale et le capteur de distance 
 SoftwareSerial bltSerial(RX_PIN, TX_PIN);
 CaptDist capDist(TRIG_PIN, ECHO_PIN);
 
@@ -41,7 +41,7 @@ String data = "";
 bool pwCorrect = false;
 
 /**
-	Initialiser les pins et la communication sériale
+	Initialiser les pins et la communication sÃ©riale
 
 	@param  aucun
 	@return void
@@ -71,9 +71,9 @@ void sendPulse(int pin) {
 }
 
 /**
-    Vérifier le mot de passe reçu par le module bluetooth
-	Le mot de passe ne contient que <passwordLen> caratères
-	La vérification sera fait quand le module reçoit le caractère 'Z' <=> bouton <Submit>
+    VÃ©rifier le mot de passe reÃ§u par le module bluetooth
+	Le mot de passe ne contient que <passwordLen> caratÃ¨res
+	La vÃ©rification sera fait quand le module reÃ§oit le caractÃ¨re 'Z' <=> bouton <Submit>
 
 	@param  aucun
 	@return void
@@ -97,9 +97,9 @@ void checkPw() {
 }
 
 /**
-	Boucle infinie, on va vérifier la distance capturée et le mot de passe régulièrement
-	Si le mot de passe est correct, une pulse de 100ms sera envoyer vers la carte Galileo pour déactiver l'alarme
-	Si la distance est supérieur au MAX_DIST, le pin DIST_PIN est activé en HIGH et donc déclanche l'alarme
+	Boucle infinie, on va vÃ©rifier la distance capturÃ©e et le mot de passe rÃ©guliÃ¨rement
+	Si le mot de passe est correct, une pulse de 100ms sera envoyer vers la carte Galileo pour dÃ©activer l'alarme
+	Si la distance est supÃ©rieur au MAX_DIST, le pin DIST_PIN est activÃ© en HIGH et donc dÃ©clanche l'alarme
 
 	@param  aucun
 	@return void
