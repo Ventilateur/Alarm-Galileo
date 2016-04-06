@@ -18,35 +18,35 @@
 #define US_2_CM	(1/58.2)
 
 /** 
-	@brief API pour le capteur de distance, référence HC-SR04
+	@brief API pour le capteur de distance, rÃ©fÃ©rence HC-SR04
 */
 class CaptDist {
 public:
 	/**
 		Constructeur qui initialise les deux pins trigger et echo du capteur
 
-		@param trigPin output pin pour déclancher le capteur
-		@param echoPin input pin pour recevoir la réponse
+		@param trigPin output pin pour dÃ©clancher le capteur
+		@param echoPin input pin pour recevoir la rÃ©ponse
 	*/
 	CaptDist(int trigPin, int echoPin);
 
 	/**
-		Recupérer la valeur brute en microseconde
+		RecupÃ©rer la valeur brute en microseconde
 
 		@param  aucun
-		@return la durée en microseconde du pulse reçu par l'echo pin 
+		@return la durÃ©e en microseconde du pulse reÃ§u par l'echo pin 
 	*/
 	long getRaw();
 
 	/**
-	Recupérer la distance capturée en cm
+	RecupÃ©rer la distance capturÃ©e en cm
 
 	@param  aucun
 	@return la distance en cm
 	*/
 	long getCm();
 	/**
-		Déstructeur
+		DÃ©structeur
 	*/
 	~CaptDist();
 private:
