@@ -15,20 +15,20 @@ CaptDist::CaptDist(int trigPin, int echoPin) {
 }
 
 long CaptDist::getRaw() {
-	// envoyer un pulse de 15us pour déclancher la mesure
+	// envoyer un pulse de 15us pour dÃ©clancher la mesure
 	digitalWrite(trig, LOW);
 	delayMicroseconds(5);
 	digitalWrite(trig, HIGH);
 	delayMicroseconds(15);
 	digitalWrite(trig, LOW);
-	// mesurer la durée du pulse reçu
+	// mesurer la durÃ©e du pulse reÃ§u
 	long duration = pulseIn(echo, HIGH);
 	delay(100);
 	return duration;
 }
 
 long CaptDist::getCm() {
-	// la durée du pulse est proportionnel à la distance
+	// la durÃ©e du pulse est proportionnel Ã  la distance
 	return US_2_CM * CaptDist::getRaw();
 }
 
