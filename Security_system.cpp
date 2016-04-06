@@ -26,6 +26,7 @@ void triggerAlarm() {
 }
 
 void setDefault() {
+	door.open();
 	buzzer.stop();
 	lcd.setColor(0, 0, 0);
 	lcd.display(false);
@@ -49,7 +50,6 @@ void runAlarm() {
 		(button.getState()) ? door.open() : door.close();
 	}
 }
-
 
 int main() {
 
