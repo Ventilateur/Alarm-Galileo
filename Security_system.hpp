@@ -8,18 +8,21 @@
 #include "LightSensor.hpp"
 #include "Lcd.hpp"
 #include "GpioEdge.hpp"
+#include "Led.hpp"
 
 // définir les pins à utiliser
+#define LED_PIN			4
 #define SERVO_PIN		5
 #define BUZZER_PIN		3
 #define LIGHT_PIN		3
 #define BUTTON_PIN		2
-#define ARDUINO_PIN		0
+#define ARDUINO_PIN_5	1
+#define ARDUINO_PIN_4	0
 
 // définir les constances à utiliser
 #define VOLUME			0.5
 #define BUZZER_DELAY_MS	10
-#define LIGHT_THRESHOLD	400
+#define LIGHT_THRESHOLD	100
 
 /**
  * Déclancher l'alarme

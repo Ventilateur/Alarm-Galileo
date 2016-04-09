@@ -5,7 +5,9 @@ ServoDoor 	door(SERVO_PIN);
 BuzzerAlarm buzzer(BUZZER_PIN);
 LightSensor sensor(LIGHT_PIN);
 GpioEdge 	button(BUTTON_PIN);
-GpioEdge 	isActive(ARDUINO_PIN);
+GpioEdge 	isActive(ARDUINO_PIN_5);
+GpioEdge 	captDist(ARDUINO_PIN_4);
+Led	        led(LED_PIN);
 Lcd 		lcd;
 
 bool thief;
@@ -15,7 +17,7 @@ void triggerAlarm() {
 	lcd.display(true);
 	lcd.setColor(255, 0, 0);
 	lcd.setPos(2, 1);
-	lcd.writeMsg("Alert!!!");
+	lcd.writeMsg("Voleurrr!!!");
 	// Activer le buzzer (quelques notes pour qu'il ne soit pas monotone)
 	buzzer.start(MI,  VOLUME, BUZZER_DELAY_MS);
 	buzzer.start(FA,  VOLUME, BUZZER_DELAY_MS);
@@ -26,7 +28,6 @@ void triggerAlarm() {
 }
 
 void setDefault() {
-	door.open();
 	buzzer.stop();
 	lcd.setColor(0, 0, 0);
 	lcd.display(false);
@@ -39,10 +40,11 @@ void setup() {
 }
 
 void runAlarm() {
+	led.ledOn(!isActive.getState());
 	if (isActive.getState()) {
 		std::cout << "Activated!" << std::endl;
 		door.close();
-		if (sensor.read() < LIGHT_THRESHOLD) thief = true;
+		if ((sensor.read() > LIGHT_THRESHOLD) or (captDist.read() == 1)) thief = true;
 		if (thief) triggerAlarm();
 	} else {
 		std::cout << "Deactivated!" << std::endl;
