@@ -8,7 +8,7 @@ GpioEdge::GpioEdge(int pin) {
 	mraa_gpio_isr(myTouch, MRAA_GPIO_EDGE_BOTH, &edgeDetect, (void*)this);
 }
 
-// void* is a special pointer that can be pointed at an object of any type
+// self note: void* is a special pointer that can be pointed at an object of any type
 void GpioEdge::edgeDetect(void *ctx) {
 	std::cout << "Edge detected!" << std::endl;
 	GpioEdge *thisObj = (GpioEdge*)ctx;
