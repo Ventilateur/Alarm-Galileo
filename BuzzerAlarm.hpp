@@ -48,6 +48,7 @@ public:
 	 * Déstructeur
 	 */
 	~BuzzerAlarm();
+
 protected:
 	mraa_pwm_context myAlarm;
 };

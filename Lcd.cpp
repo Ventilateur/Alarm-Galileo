@@ -10,11 +10,11 @@ Lcd::Lcd() {
 
 	usleep(50000);
 	writeCmd(myLcd, LCD_FUNCTIONSET | LCD_2LINE);
-    	usleep(4500);
+    usleep(4500);
 	writeCmd(myLcd, LCD_FUNCTIONSET | LCD_2LINE);
-    	usleep(4500);
+    usleep(4500);
 	writeCmd(myLcd, LCD_FUNCTIONSET | LCD_2LINE);
-    	usleep(4500);
+    usleep(4500);
 	writeCmd(myLcd, LCD_FUNCTIONSET | LCD_2LINE);
 	Lcd::display(false);
 	writeCmd(myLcd, LCD_CLEARDISPLAY);
